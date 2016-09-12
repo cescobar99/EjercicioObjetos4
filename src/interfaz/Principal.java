@@ -60,14 +60,15 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
         jLabel1.setText("Password");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
 
         txtPassContra.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jPanel1.add(txtPassContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 200, 30));
+        jPanel1.add(txtPassContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 200, 30));
 
-        jLabel2.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 255));
         jLabel2.setText("Contraseña:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, 30));
 
         cmdGuardarContra.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         cmdGuardarContra.setText("Guardar Contraseña");
@@ -76,7 +77,7 @@ public class Principal extends javax.swing.JFrame {
                 cmdGuardarContraActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdGuardarContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, -1, -1));
+        jPanel1.add(cmdGuardarContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, -1, -1));
 
         cmdMostrar.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         cmdMostrar.setText("Mostrar");
@@ -85,7 +86,7 @@ public class Principal extends javax.swing.JFrame {
                 cmdMostrarActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 160, -1));
+        jPanel1.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 160, -1));
 
         cmdSeguridad.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         cmdSeguridad.setText("Tipo de seguridad");
@@ -95,7 +96,7 @@ public class Principal extends javax.swing.JFrame {
                 cmdSeguridadActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdSeguridad, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 160, -1));
+        jPanel1.add(cmdSeguridad, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, 160, -1));
 
         cmdCambiarContra.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         cmdCambiarContra.setText("Cambiar contraseña");
@@ -104,7 +105,7 @@ public class Principal extends javax.swing.JFrame {
                 cmdCambiarContraActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdCambiarContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 160, -1));
+        jPanel1.add(cmdCambiarContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 160, -1));
 
         txtRes.setEditable(false);
         txtRes.setColumns(20);
@@ -112,7 +113,7 @@ public class Principal extends javax.swing.JFrame {
         txtRes.setRows(5);
         jScrollPane1.setViewportView(txtRes);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 370, 90));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 370, 150));
 
         cmdLimpiar.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         cmdLimpiar.setText("Limpiar");
@@ -121,11 +122,11 @@ public class Principal extends javax.swing.JFrame {
                 cmdLimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 160, -1));
+        jPanel1.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 160, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 380));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 420));
 
-        setSize(new java.awt.Dimension(454, 421));
+        setSize(new java.awt.Dimension(708, 490));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -133,13 +134,13 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         clase p;
         if (txtPassContra.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Digite Contraseña", "error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Digite Contraseña por favor", "error", JOptionPane.ERROR_MESSAGE);
             txtPassContra.requestFocusInWindow();
         } else {
             contra = txtPassContra.getText();
             lon = contra.length();
             p = new clase(lon, contra);
-            JOptionPane.showMessageDialog(this, "Contraseña guardada");
+            JOptionPane.showMessageDialog(this, "Contraseña guardada corractamente");
             cmdCambiarContra.setEnabled(true);
             cmdSeguridad.setEnabled(true);
             cmdMostrar.setEnabled(true);
@@ -183,15 +184,15 @@ public class Principal extends javax.swing.JFrame {
         int sw = 1;
         do {
             try {
-                nueva = JOptionPane.showInputDialog(this, "Digite nueva contraseña");
+                nueva = JOptionPane.showInputDialog(this, "Digite nueva contraseña por favor");
                 lon = nueva.length();
                 p = new clase(lon, nueva);
                 txtPassContra.setText(nueva);
                 txtRes.setText("");
-                JOptionPane.showMessageDialog(this, "Contraseña actualizada");
+                JOptionPane.showMessageDialog(this, "Contraseña actualizada correctamente");
                 sw = 1;
             } catch (NullPointerException e) {
-                int res = JOptionPane.showConfirmDialog(this, "¿Seguro que deseas salir?", "Salir", JOptionPane.YES_NO_OPTION);
+                int res = JOptionPane.showConfirmDialog(this, "¿Seguro que quieres salir?", "Salir", JOptionPane.YES_NO_OPTION);
                 if (res == 0) {
                     sw = 1;
                 } else {
