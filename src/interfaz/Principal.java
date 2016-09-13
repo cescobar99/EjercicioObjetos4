@@ -5,7 +5,7 @@
  */
 package interfaz;
 
-import clases.clase;
+import clases.Password;
 import javax.swing.JOptionPane;
 
 /**
@@ -132,14 +132,14 @@ public class Principal extends javax.swing.JFrame {
 
     private void cmdGuardarContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGuardarContraActionPerformed
         // TODO add your handling code here:
-        clase p;
+        Password p;
         if (txtPassContra.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Digite Contraseña por favor", "error", JOptionPane.ERROR_MESSAGE);
             txtPassContra.requestFocusInWindow();
         } else {
             contra = txtPassContra.getText();
             lon = contra.length();
-            p = new clase(lon, contra);
+            p = new Password(lon, contra);
             JOptionPane.showMessageDialog(this, "Contraseña guardada corractamente");
             cmdCambiarContra.setEnabled(true);
             cmdSeguridad.setEnabled(true);
@@ -152,13 +152,13 @@ public class Principal extends javax.swing.JFrame {
 
     private void cmdMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarActionPerformed
 
-        clase p;
+        Password p;
 
-        clase c;
+        Password c;
 
         contra = txtPassContra.getText();
         lon = contra.length();
-        p = new clase(lon, contra);
+        p = new Password(lon, contra);
         c = p.mostrar();
         txtRes.setText("Su contraseña actual es: " + c.getContra() + "\n"
                 + " longitud de su contraseña es: " + c.getLongitud());
@@ -168,17 +168,17 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         String c;
-        clase p;
+        Password p;
         contra = txtPassContra.getText();
         lon = contra.length();
-        p = new clase(lon, contra);
+        p = new Password(lon, contra);
         c = p.fuerte();
         txtRes.setText(c);
     }//GEN-LAST:event_cmdSeguridadActionPerformed
 
     private void cmdCambiarContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCambiarContraActionPerformed
         // TODO add your handling code here:
-        clase p;
+        Password p;
         String nueva;
         int lon;
         int sw = 1;
@@ -186,7 +186,7 @@ public class Principal extends javax.swing.JFrame {
             try {
                 nueva = JOptionPane.showInputDialog(this, "Digite nueva contraseña por favor");
                 lon = nueva.length();
-                p = new clase(lon, nueva);
+                p = new Password(lon, nueva);
                 txtPassContra.setText(nueva);
                 txtRes.setText("");
                 JOptionPane.showMessageDialog(this, "Contraseña actualizada correctamente");

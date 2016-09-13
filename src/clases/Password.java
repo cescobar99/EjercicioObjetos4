@@ -9,16 +9,16 @@ package clases;
  *
  * @author Camilo_Escobar
  */
-public class clase {
+public class Password {
     
     private int longitud;
     private String contra;
     
-    public clase(){
+    public Password(){
         this.longitud=8;
     }
     
-    public clase (int longitud,String contra){
+    public Password (int longitud,String contra){
         this.longitud=longitud;
         this.contra=contra;
     }
@@ -51,21 +51,21 @@ public class clase {
         return f;
     }
     
-    public clase mostrar(){
-       clase pass;
+    public Password mostrar(){
+       Password pass;
        String m;
        int lon;
        m=this.contra;
        lon=this.longitud;
-       pass=new clase(lon,m);
+       pass=new Password(lon,m);
        return pass;
     }
     
-    public clase CambiarContraseña(){
-        clase nc;
+    public Password CambiarContraseña(){
+        Password nc;
         int lon = this.longitud;
         String contra = this.contra;
-        nc = new clase(lon,contra);
+        nc = new Password(lon,contra);
         return nc;
         
     }
