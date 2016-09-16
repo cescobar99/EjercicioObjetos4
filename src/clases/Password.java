@@ -12,7 +12,7 @@ package clases;
 public class Password {
     
     private int longitud;
-    private String contra;
+    private String contraseña;
     
     public Password(){
         this.longitud=8;
@@ -20,7 +20,7 @@ public class Password {
     
     public Password (int longitud,String contra){
         this.longitud=longitud;
-        this.contra=contra;
+        this.contraseña=contraseña;
     }
 
     public int getLongitud() {
@@ -31,42 +31,42 @@ public class Password {
         this.longitud = longitud;
     }
 
-    public String getContra() {
-        return contra;
+    public String getContraseña() {
+        return contraseña;
     }
 
-    public void setContra(String contra) {
-        this.contra = contra;
+    public void setContraseña(String contra) {
+        this.contraseña = contraseña;
     }   
     
     public String fuerte(){
         
-        String f;
+        String resultado;
         if (this.longitud>=6) {
-            f="La contraseña actual es fuerte";
+            resultado="La contraseña actual es fuerte";
         }
         else{
-            f="La contraseña actual no es fuerte";
+            resultado="La contraseña actual no es fuerte";
         }
-        return f;
+        return resultado;
     }
     
     public Password mostrar(){
        Password pass;
        String m;
-       int lon;
-       m=this.contra;
-       lon=this.longitud;
-       pass=new Password(lon,m);
+       int longittud;
+       m=this.contraseña;
+       longitud=this.longitud;
+       pass=new Password(longitud,m);
        return pass;
     }
     
     public Password CambiarContraseña(){
-        Password nc;
+        Password contraseña_nueva;
         int lon = this.longitud;
-        String contra = this.contra;
-        nc = new Password(lon,contra);
-        return nc;
+        String contraseña = this.contraseña;
+        contraseña_nueva = new Password(lon,contraseña);
+        return contraseña_nueva;
         
     }
 }

@@ -17,8 +17,8 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
-    int lon;
-    String contra;
+    int longitud;
+    String contraseña;
 
     public Principal() {
         initComponents();
@@ -77,7 +77,7 @@ public class Principal extends javax.swing.JFrame {
                 cmdGuardarContraActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdGuardarContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, -1, -1));
+        jPanel1.add(cmdGuardarContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, -1, -1));
 
         cmdMostrar.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         cmdMostrar.setText("Mostrar");
@@ -86,7 +86,7 @@ public class Principal extends javax.swing.JFrame {
                 cmdMostrarActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 160, -1));
+        jPanel1.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 160, -1));
 
         cmdSeguridad.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         cmdSeguridad.setText("Tipo de seguridad");
@@ -96,7 +96,7 @@ public class Principal extends javax.swing.JFrame {
                 cmdSeguridadActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdSeguridad, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, 160, -1));
+        jPanel1.add(cmdSeguridad, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 160, -1));
 
         cmdCambiarContra.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         cmdCambiarContra.setText("Cambiar contraseña");
@@ -105,7 +105,7 @@ public class Principal extends javax.swing.JFrame {
                 cmdCambiarContraActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdCambiarContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 160, -1));
+        jPanel1.add(cmdCambiarContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, 160, -1));
 
         txtRes.setEditable(false);
         txtRes.setColumns(20);
@@ -113,7 +113,7 @@ public class Principal extends javax.swing.JFrame {
         txtRes.setRows(5);
         jScrollPane1.setViewportView(txtRes);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 370, 150));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 370, 170));
 
         cmdLimpiar.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         cmdLimpiar.setText("Limpiar");
@@ -134,12 +134,12 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Password p;
         if (txtPassContra.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Digite Contraseña por favor", "error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Digite Contraseña por favor", "Error", JOptionPane.ERROR_MESSAGE);
             txtPassContra.requestFocusInWindow();
         } else {
-            contra = txtPassContra.getText();
-            lon = contra.length();
-            p = new Password(lon, contra);
+            contraseña = txtPassContra.getText();
+            longitud = contraseña.length();
+            p = new Password(longitud, contraseña);
             JOptionPane.showMessageDialog(this, "Contraseña guardada corractamente");
             cmdCambiarContra.setEnabled(true);
             cmdSeguridad.setEnabled(true);
@@ -156,37 +156,37 @@ public class Principal extends javax.swing.JFrame {
 
         Password c;
 
-        contra = txtPassContra.getText();
-        lon = contra.length();
-        p = new Password(lon, contra);
+        contraseña = txtPassContra.getText();
+        longitud = contraseña.length();
+        p = new Password(longitud, contraseña);
         c = p.mostrar();
-        txtRes.setText("Su contraseña actual es: " + c.getContra() + "\n"
+        txtRes.setText("Su contraseña actual es: " + c.getContraseña() + "\n"
                 + " longitud de su contraseña es: " + c.getLongitud());
     }//GEN-LAST:event_cmdMostrarActionPerformed
 
     private void cmdSeguridadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSeguridadActionPerformed
-        // TODO add your handling code here:
+   
 
         String c;
         Password p;
-        contra = txtPassContra.getText();
-        lon = contra.length();
-        p = new Password(lon, contra);
+        contraseña = txtPassContra.getText();
+        longitud = contraseña.length();
+        p = new Password(longitud, contraseña);
         c = p.fuerte();
         txtRes.setText(c);
     }//GEN-LAST:event_cmdSeguridadActionPerformed
 
     private void cmdCambiarContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCambiarContraActionPerformed
-        // TODO add your handling code here:
+   
         Password p;
         String nueva;
-        int lon;
+        int longitud;
         int sw = 1;
         do {
             try {
                 nueva = JOptionPane.showInputDialog(this, "Digite nueva contraseña por favor");
-                lon = nueva.length();
-                p = new Password(lon, nueva);
+                longitud = nueva.length();
+                p = new Password(longitud, nueva);
                 txtPassContra.setText(nueva);
                 txtRes.setText("");
                 JOptionPane.showMessageDialog(this, "Contraseña actualizada correctamente");
@@ -205,7 +205,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdCambiarContraActionPerformed
 
     private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
-        // TODO add your handling code here:
+  
         txtPassContra.setText("");
         txtRes.setText("");
         cmdGuardarContra.setEnabled(true);
